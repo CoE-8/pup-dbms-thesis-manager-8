@@ -1,0 +1,211 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+</head>
+
+    <div class="ban1">
+      <div class="container">
+      <div class="col-xs-1">
+      <img src="/static/image/PUP.png" alt="Compas" class="tile-image big-illustration" id="pup">
+      </div>
+      <div class="col-xs-9">
+      <h1 class="hh"> Polytechnic University of the Philippines </h1>
+      <h3 class="hhh"> College of Engineering</h3>
+      <h3 class="hhh"> Department of Computer Engineering</h3>
+      </div>
+      </div>
+    </div>
+  
+    <div class="ban2">
+      <div class="container">
+        <div class="col-xs-3" style="margin-left: -100px; width: 230px; ">
+        <h5 class="wel"><b>Hi, {{user.nickname()}}!</b></h5>
+        </div>
+        <div class="col-xs-7">
+        <ul class="nav" style="width: 650px;">
+        <li id="logout">
+          <a id="aa" href="{{ url|safe }}"> <h5 id="navi"><b>LOGOUT</b></h5> </a>
+        </li>
+
+        <li id="logout">
+          <a id="aa" style="cursor: pointer;"> <h5 id="navi"><b>DEPARTMENT</b></h5> </a>
+          <ul class="dropdown">
+                <li><a href="/department/list"><h6><b>VIEW ALL DEPARTMENT</b></h6></a></li>
+                <li><a href="/department/create"><h6><b>CREATE DEPARTMENT</b></h6></a></li>
+          </ul>
+        </li>
+
+        <li id="logout">
+          <a id="aa" style="cursor: pointer;"> <h5 id="navi"><b>COLLEGE</b></h5> </a>
+          <ul class="dropdown">
+                <li><a href="/college/list"><h6><b>VIEW ALL COLLEGE</b></h6></a></li>
+                <li><a href="/college/create"><h6><b>CREATE COLLEGE</b></h6></a></li>
+          </ul>
+        </li>
+
+        <li id="logout">
+          <a id="aa" style="cursor: pointer;"> <h5 id="navi"><b>UNIVERSITY</b></h5> </a>
+          <ul class="dropdown">
+                <li><a href="/university/list"><h6><b>VIEW ALL UNIVERSITY</b></h6></a></li>
+                <li><a href="/university/create"><h6><b>CREATE UNIVERSITY</b></h6></a></li>
+          </ul>
+        </li>
+
+        <li id="logout">
+          <a id="aa" style="cursor: pointer;"> <h5 id="navi"><b>STUDENT</b></h5> </a>
+          <ul class="dropdown">
+                <li><a href="/student/list"><h6><b>VIEW ALL STUDENT</b></h6></a></li>
+                <li><a href="/student/create"><h6><b>CREATE STUDENT</b></h6></a></li>
+          </ul>
+
+        </li>
+
+        <li id="logout">
+          <a id="aa" style="cursor: pointer;"> <h5 id="navi"><b>FACULTY</b></h5> </a>
+          <ul class="dropdown">
+                <li><a href="/faculty/list"><h6><b>VIEW ALL FACULTY</b></h6></a></li>
+                <li><a href="/faculty/create"><h6><b>CREATE FACULTY</b></h6></a></li>
+          </ul>
+
+        </li>
+
+        <li id="logout">
+          <a id="aa" style="cursor: pointer;"> <h5 id="navi"><b>THESIS</b></h5> </a>
+          <ul class="dropdown">
+                <li><a href="/thesis/list"><h6><b>VIEW ALL THESIS</b></h6></a></li>
+                <li><a href="/thesis/create"><h6><b>CREATE THESIS</b></h6></a></li>
+          </ul>
+        </li>
+
+        <li id="logout"><a id="aa" style="padding-top: 15px; padding-bottom: 21px;" href="/"> <span class="glyphicon glyphicon-home"> </span> </a></li>
+        </ul>
+        </div>
+        <div class="col-xs-1">
+          <form class="navbar-form navbar-left" action="#" role="search" style="padding-left: 0px;">
+          <div>
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Search.." style="width: 200px;">
+              <span class="input-group-btn">
+                <a type="submit" class="btn" id="search" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-search" style="color: #fff"></span></a>
+              </span>
+            </div>
+          </div>
+        </form>
+        </div>
+        </div>
+    </div>
+
+    <body>
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">SEARCH RESULT</h4>
+        </div>
+        <div class="modal-body">
+          <div>
+          <ul class="list">
+            <li><p>Guybrush Threepwood</p></li><br>
+            <li><p>Elaine Marley</p></li><br>
+            <li><p>LeChuck</p></li><br>
+            <li><p>Stan</p></li><br>
+            <li><p>Voodoo Lady</p></li><br>
+            <li><p>Herman Toothrot</p></li><br>
+            <li><p>Meathook</p></li><br>
+            <li><p>Carla</p></li><br>
+            <li><p>Otis</p></li><br>
+            <li><p>Rapp Scallion</p></li><br>
+            <li><p>Rum Rogers Sr.</p></li><br>
+            <li><p>Men of Low Moral Fiber</p></li><br>
+            <li><p>Murray</p></li><br>
+            <li><p>Cannibals</p></li><br>
+          </ul>
+        <ul class="pagination" style="margin-left: 220px; margin-top: 0px;"></ul>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="frmCancel" class="btn" data-dismiss="modal"style="margin-top: 0px; margin-right: 0px;"><b>CLOSE</b></button>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+
+      <div class="thForm">
+        <div class="thForm1">
+        <div class="thForm2" style="padding-bottom: 10px">
+        <span> <img src="/static/image/clipboard.svg" alt="Compas"></span>
+        <h3> LIST OF FACULTY </h3>
+        <hr>
+        <div id="test-list">
+        <form class="frm">
+          <h4 style="margin-left: 65px;"> TITLE | NAME | EMAIL </h4>
+          <ul class="list faculty-list">
+            {% for f in faculty%}
+                <li>{{f.f_title}}   |    {{f.f_first_name}}  {{f.f_last_name}}   |    {{f.f_email}}<!-- <a class="btn-primary" href='/student/page/{{f.key.id()}}' style="width: 120px;">VIEW DETAILS</a> --></li>
+            {% endfor %}
+        </ul>
+        </form>
+        <ul class="pagination" style="margin-left: 220px; margin-top: 0px;"></ul>
+        </div>
+        <!-- <div style="margin-left: 120px; width: 350px;">
+          <ul class="li-pagination">
+            <li class="button"><a href="#">Prev</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li class="button"><a href="#">Next</a></li>
+          </ul>
+        </div> -->
+        </div>
+        </div>
+      </div>
+
+
+
+
+    <div class="navbar navbar-static-bottom" style="margin-bottom: 0px;">
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-7">
+            <h3 class="footer-title" style="color: black">© 2015 Database Management</h3>
+            <p>PUP Sta. Mesa - Manila<br/>
+              All rights reserved.<br/>
+              
+            </p>
+
+          </div> <!-- /col-xs-7 -->
+
+          <div class="col-xs-4">
+            <div class="footer-banner">
+              <h3 class="footer-title">Made by</h3>
+              <ul>
+                <li>Lorenzo S. Arcinue</li>
+                <li>Ramil L. Villanueva</li>
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+        </div>
+    </footer>
+    </div>
+
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/list.js"></script>
+    <script type="text/javascript" src="/static/js/list.pagination.js"></script>
+    <script type="text/javascript" src="/static/js/script.js"></script>
+  </body>
+
+  <html>
