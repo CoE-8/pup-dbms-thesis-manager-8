@@ -4,7 +4,6 @@ import os
 import logging
 import urllib
 from google.appengine.api import users
-from google.appengine.api import simplejson as json
 from google.appengine.ext import ndb
 import json
 import csv
@@ -469,6 +468,7 @@ class ThesisList(webapp2.RequestHandler):
             self.response.write(template.render(template_data))
         else:
             self.redirect('/login');
+            
 class CreateFaculty(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
