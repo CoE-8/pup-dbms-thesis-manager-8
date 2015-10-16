@@ -208,7 +208,7 @@
         <div class="thForm1">
         <div class="thForm2" style="padding-bottom: 10px;">
         <span> <img src="/static/image/clipboard.svg" alt="Compas"></span>
-        <h3> LIST OF THESIS</h3>
+        <h3> LIST OF THESES</h3>
         <hr>
         <div id="test-list">
         <form class="frm">
@@ -283,7 +283,7 @@
         {
           response.data.forEach(function(thesis) {
           var thesis_info = thesis.thesis_year + "   |   " + thesis.thesis_title + "   |   " + thesis.f_first_name + " " + thesis.f_last_name;
-          $('ul.thesis_list').append('<li>'+thesis_info+'</li>');
+          $('ul.thesis_list').append('<li>'+thesis_info+' <a class="mybtn" style="width: 50px;" href=\'/thesis/edit/'+thesis.self_id+'\'>Edit</a><a style="width: 50px;" class=\'mybtn\' href=\'/thesis/delete/'+thesis.self_id+'\'>Delete</a><hr style="margin-top: 5px;"></li>');
           return false;
           })
         }

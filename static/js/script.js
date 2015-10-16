@@ -62,7 +62,7 @@ $(function(){
 			{
 				response.data.forEach(function(thesis) {
 				var thesis_info = thesis.thesis_year + "   |   " + thesis.thesis_title + "   |   " + thesis.f_first_name + " " + thesis.f_last_name;
-				$('ul.thesis_list').append('<li>'+thesis_info+'</li>');
+				$('ul.thesis_list').append('<li>'+thesis_info+' <a class="mybtn" href=\'/thesis/edit/'+thesis.self_id+'\'>Edit</a><a class=\'mybtn\' href=\'/thesis/delete/'+thesis.self_id+'\'>Delete</a><hr style="margin-top: 5px;"></li>');
 				return false;
 				})
 			}

@@ -146,10 +146,10 @@
         <hr>
         <div id="test-list">
         <form class="frm">
-          <h4 style="margin-left: 65px;"> YEAR | NAME | EMAIL </h4>
+          <h4 style="margin-left: 65px;"> YEAR GRADUATED | NAME | EMAIL </h4>
           <ul class="list faculty-list">
             {% for s in student%}
-                <li>{{s.s_student_num}} |   {{s.s_last_name}} {{s.s_first_name}} |    {{s.s_email}}<!-- <a class="btn-primary" href='/student/page/{{s.key.id()}}' style="width: 120px;">VIEW DETAILS</a> --></li>
+                <li>{{s.s_year_graduated}} |   {{s.s_last_name}} {{s.s_first_name}} |    {{s.s_email}}<a class="btn-primary" href='/student/page/{{s.key.id()}}' style="width: 120px;">VIEW DETAILS</a><hr style="margin-top: 5px; margin-bottom: 10px;"></li>
             {% endfor %}
           </ul>
         </form>

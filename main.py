@@ -769,6 +769,15 @@ class CreateDepartment(webapp2.RequestHandler):
         }
         self.response.out.write(json.dumps(response))
 
+class  DeleteThesis(webapp2.RequestHandler):
+    def get(self,th_id):
+        d = Thesis.get_by_id(int(th_id))
+        for studs in d.thesis_student_keys:
+            s = studs.get()
+            s.key.delete()
+        d.key.delete()
+        self.response.write('Thesis has been deleted <br> <a href="/thesis/list">Back to list of Theses</a>')
+
 class ListFaculty(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -857,11 +866,54 @@ class ListCollege(webapp2.RequestHandler):
         else:
             self.redirect('/login');
 
+class  DeleteStudent(webapp2.RequestHandler):
+    def get(self,s_id):
+        key_to_delete = ndb.Key('Student',int(s_id))
+        th = Thesis.query(projection=[Thesis.thesis_student_keys]).fetch()
+        for t in th:
+            if key_to_delete in t.thesis_student_keys:
+                thesis = t.key.get()
+                idx = thesis.thesis_student_keys.index(key_to_delete)
+                del thesis.thesis_student_keys[idx]
+                thesis.put()
+        s = key_to_delete.get()
+        s.key.delete()
+        self.response.write('Student has been deleted <br> <a href="/student/list">Back to list of Students</a>')
+
+class StudentPage(webapp2.RequestHandler):
+    def get(self,s_id):
+        s = Student.get_by_id(int(s_id))
+        user = users.get_current_user()
+        url = users.create_logout_url(self.request.uri)
+        url_linktext = 'Logout'
+        template_data = {
+            'student': s,
+            'user': user,
+            'url': url,
+            'url_linktext': url_linktext,
+        }
+        template = JINJA_ENVIRONMENT.get_template('studPage.html')
+        self.response.write(template.render(template_data))
+        
+    def post(self,s_id):
+        s = Student.get_by_id(int(s_id))
+        s.s_first_name = self.request.get('s_first_name')
+        s.s_middle_name = self.request.get('s_middle_name')
+        s.s_last_name = self.request.get('s_last_name')
+        s.s_email = self.request.get('s_email')
+        s.s_phone_num = self.request.get('s_phone_num')
+        s.s_student_num = self.request.get('s_student_num')
+        s.s_birthdate = self.request.get('s_birthdate')
+        s.s_year_graduated = self.request.get('s_year_graduated')
+        s.put()
+        self.redirect('/')
+
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/login',LoginPage),
     ('/register',RegisterPage),
     ('/api/handler', APIHandlerPage),
+    ('/thesis/delete/(.*)', DeleteThesis),
     ('/faculty/list', ListFaculty),
     ('/student/list', ListStudent),
     ('/university/list', ListUniversity),
@@ -875,4 +927,6 @@ app = webapp2.WSGIApplication([
     ('/thesis/list', ThesisList),
     ('/thesis/create', ThesisCreate),
     ('/csvimport', ImportCSV),
+    ('/student/delete/(.*)', DeleteStudent),
+    ('/student/page/(.*)', StudentPage)
 ], debug=True)

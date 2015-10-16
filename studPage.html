@@ -3,14 +3,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
 </head>
 
     <div class="ban1">
       <div class="container">
       <div class="col-xs-1">
-      <img src="static/image/PUP.png" alt="Compas" class="tile-image big-illustration" id="pup">
+      <img src="/static/image/PUP.png" alt="Compas" class="tile-image big-illustration" id="pup">
       </div>
       <div class="col-xs-9">
       <h1 class="hh"> Polytechnic University of the Philippines </h1>
@@ -105,54 +105,57 @@
       <div class="thForm">
         <div class="thForm1">
         <div class="thForm2">
-        <span> <img src="static/image/retina.svg" alt="Compas"></span>
+        <span> <img src="/static/image/retina.svg" alt="Compas"></span>
         <h3> STUDENT INFORMATION </h3>
         <hr>
-        <form class="frm">
+        <form class="frm" id="form_stud" action="/student/page/{{student.key.id()}}" method="post">
           <ul>
             <li>
               <label> FIRST NAME: </label>
-              <input type="text" value="ARIAN" readonly>
+              <input type="text" name="s_first_name" value="{{student.s_first_name}}">
               <div class="clear"> </div>
             </li>
             <li>
               <label> MIDDLE NAME: </label>
-               <input type="text" value="SARIO" name="Abstract" readonly>
+               <input type="text" value="{{student.s_middle_name}}" name="s_middle_name">
                <div class="clear"> </div>
             </li>
             <li>
               <label> LAST NAME: </label>
-              <input type="text" value="NOLASCO" readonly>
+              <input type="text" name="s_last_name" value="{{student.s_last_name}}">
               <div class="clear"> </div>
             </li>
             <li>
               <label> EMAIL ADDRESS: </label>
-              <input type="email" value="ariannolasco@yahoo.com" readonly>
+              <input type="email" name="s_email" value="{{student.s_email}}">
               <div class="clear"> </div>
             </li>
             <li>
               <label> PHONE NUMBER: </label>
-              <input type="number" value="09876543321" readonly>
+              <input type="number" name="s_phone_num" value="{{student.s_phone_num}}">
               <div class="clear"> </div>
             </li>
             <li>
               <label> DATE OF BIRTH: </label>
-              <input type="date" value="1994-11-28" readonly>
+              <input type="date" name="s_birthdate" value="{{student.s_birthdate}}">
               <div class="clear"> </div>
             </li>
             <li>
               <label> YEAR GRADUATED: </label>
-              <input type="date" value="2016-04-19" readonly>
+              <input type="number" name="s_year_graduated" value="{{student.s_year_graduated}}">
               <div class="clear"> </div>
             </li>
             <li>
               <label> STUDENT NUMBER: </label>
-              <input type="number" value="2011" readonly>
+              <input type="number" name="s_student_num" value="{{student.s_student_num}}">
               <div class="clear"> </div>
             </li>
-            <a id="frmCreate" class="btn" href=""><b>BACK</b></a>
+            
+            <input id="frmcreate" class="btn" type="submit" value="SUBMIT"></input>
+              
           </ul>
         </form>
+        <a id="frmCancel" class="btn" href="/student/delete/{{student.key.id()}}">DELETE</a>
         </div>
         </div>
       </div>
@@ -188,11 +191,11 @@
     </footer>
     </div>
 
-    <script type="text/javascript" src="static/js/jquery-1.11.3.js"></script>
-    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="static/js/list.js"></script>
-    <script type="text/javascript" src="static/js/list.pagination.js"></script>
-    <script type="text/javascript" src="static/js/script.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/list.js"></script>
+    <script type="text/javascript" src="/static/js/list.pagination.js"></script>
+    <script type="text/javascript" src="/static/js/script.js"></script>
   </body>
 
   <html>
